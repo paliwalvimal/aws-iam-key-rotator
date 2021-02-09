@@ -1,6 +1,6 @@
 ## aws-iam-key-rotator
 
-This tool is responsible for rotating AWS IAM Access Key every X number of days.
+This tool is responsible for generating a new IAM access key pair every X days and deletes the existing key pair after a certain period to allow the user to update key wherever necessary.
 
 ### Prerequisites:
 - [Terraform](https://www.terraform.io/downloads.html)
