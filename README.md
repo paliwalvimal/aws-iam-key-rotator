@@ -2,6 +2,11 @@
 
 This tool is responsible for generating a new IAM access key pair every X days and deletes the existing key pair after a certain period to allow the user to update key wherever necessary.
 
+## Licence:
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
+MIT Licence. See [Licence](LICENCE) for full details.
+
 ### Prerequisites:
 - [Terraform](https://www.terraform.io/downloads.html)
 - [AWS CLI](https://aws.amazon.com/cli/)
