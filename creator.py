@@ -101,7 +101,7 @@ def create_user_key(userName, user):
                 )
                 
                 # Send keys to user
-                send_email(user['email'], userName, resp['AccessKeyId'], resp['SecretAccessKey'], user['keys'][0]['ak'])
+                send_email(user['email'], userName, resp['AccessKey']['AccessKeyId'], resp['AccessKey']['SecretAccessKey'], user['keys'][0]['ak'])
 
                 # Mark exisiting key to destory after X days
                 mark_key_for_destroy(userName, user['keys'][0]['ak'], user['email'])
