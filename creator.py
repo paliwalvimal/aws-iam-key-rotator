@@ -7,9 +7,9 @@ import pytz
 from datetime import datetime, date
 from botocore.exceptions import ClientError
 
-DAYS_FOR_DELETION = os.environ.get('DAYS_FOR_DELETION', 7)
+DAYS_FOR_DELETION = os.environ.get('DAYS_FOR_DELETION', 5)
 IAM_KEY_ROTATOR_TABLE = os.environ.get('IAM_KEY_ROTATOR_TABLE')
-ACCESS_KEY_AGE = os.environ.get('ACCESS_KEY_AGE', 90)
+ACCESS_KEY_AGE = os.environ.get('ACCESS_KEY_AGE', 85)
 
 # AWS_REGION is by default available within lambda environment
 iam = boto3.client('iam', region_name=os.environ.get('AWS_REGION'))
@@ -126,7 +126,7 @@ def send_email(email, userName, accessKey, secretKey, existingAccessKey):
                 },
                 'Body': {
                     'Html': {
-                        'Data': '<html><head><title>{}</title></head><body>Hey &#x1F44B;<br/><br/>A new access key pair has been generated for you. Please update the same wherever necessary.<br/><br/>Access Key: <strong>{}</strong><br/>Secret Access Key: <strong>{}</strong><br/><br/><strong>Note:</strong> Existing key pair <strong>{}</strong> will be available ONLY for {} days so please update the new key pair wherever required.<br/><br/>Thanks,<br/>Team FME</body></html>'.format('New Access Key Pair', accessKey, secretKey, existingAccessKey, DAYS_FOR_DELETION),
+                        'Data': '<html><head><title>{}</title></head><body>Hey &#x1F44B; {},<br/><br/>A new access key pair has been generated for you. Please update the same wherever necessary.<br/><br/>Access Key: <strong>{}</strong><br/>Secret Access Key: <strong>{}</strong><br/><br/><strong>Note:</strong> Existing key pair <strong>{}</strong> will be available ONLY for {} days so please update the new key pair wherever required.<br/><br/>Thanks,<br/>Team FME</body></html>'.format('New Access Key Pair', userName, accessKey, secretKey, existingAccessKey, DAYS_FOR_DELETION),
                         'Charset': 'UTF-8'
                     }
                 }

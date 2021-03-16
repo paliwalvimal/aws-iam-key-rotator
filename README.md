@@ -1,6 +1,6 @@
 ## aws-iam-key-rotator
 
-This tool is responsible for generating a new IAM access key pair every X days and deletes the existing key pair after a certain period to allow the user to update key wherever necessary.
+This tool is responsible for generating a new IAM access key pair every X days and mails it to the user via SES. It will also delete the existing key pair after a few days of new key generation to allow the user to update the new key wherever required.
 
 ## Licence:
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)

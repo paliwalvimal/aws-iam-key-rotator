@@ -32,7 +32,7 @@ def send_email(email, userName, accessKey):
                 },
                 'Body': {
                     'Html': {
-                        'Data': '<html><head><title>{}</title></head><body>Hey &#x1F44B;<br/><br/>An existing access key pair has been deleted because it reached End-Of-Life. <br/><br/>Access Key: <strong>{}</strong><br/><br/>Thanks,<br/>Team FME</body></html>'.format('Old Access Key Pair Deleted', accessKey),
+                        'Data': '<html><head><title>{}</title></head><body>Hey &#x1F44B; {},<br/><br/>An existing access key pair has been deleted because it reached End-Of-Life. <br/><br/>Access Key: <strong>{}</strong><br/><br/>Thanks,<br/>Team FME</body></html>'.format('Old Access Key Pair Deleted', userName, accessKey),
                         'Charset': 'UTF-8'
                     }
                 }
