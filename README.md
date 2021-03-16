@@ -19,6 +19,8 @@ MIT Licence. See [Licence](LICENCE) for full details.
 - IAM
 
 ### Process:
+![aws-iam-key-rotator](iam-key-rotator.jpg "AWS IAM Key Rotator")
+
 - CloudWatch triggers lambda function which checks the age of access key for all IAM users who has **Email**(case-insensitive) tag attached.
 - If access key age is greater than `ACCESS_KEY_AGE` environment variable and if the user has ONLY 1 key pair associated a new key pair is generated and the same is mailed to user via AWS SES.
 - The existing key is stored in DynamoDB table with user details and an expiration timestamp.
